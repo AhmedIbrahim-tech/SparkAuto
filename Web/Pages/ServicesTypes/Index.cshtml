@@ -1,0 +1,78 @@
+﻿@page
+@model Web.Pages.ServicesTypes.IndexModel
+@{
+    ViewData["Title"] = "Services Type";
+}
+
+
+<br />
+<div class="border white-background">
+    <div class="row">
+
+        <div class="col-6">
+            <h2 class="text-info">Service Types List</h2>
+        </div>
+
+        <div class="col-6 text-right">
+            <a class="btn btn-primary" asp-page="Create">Create New</a>
+        </div>
+
+
+        @if (Model.servicesTypes.Any())
+        {
+            <form method="post">
+                <table class="table table-striped border">
+                    <thead>
+                        <tr>
+                            <th>
+                                <label asp-for="servicesTypes.FirstOrDefault().Name"></label>
+                            </th>
+                            <th>
+                                <label asp-for="servicesTypes.FirstOrDefault().Price"></label>
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.servicesTypes)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(M => item.Name)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(M => item.Price)
+                                </td>
+                                <td class="text-right">
+                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                        <a asp-Page="Details" asp-route-id="@item.Id" class="btn btn-outline-secondary">
+                                            <i class="bi bi-camera-reels"></i>
+                                            Details
+                                        </a>
+                                        <a asp-Page="Edit" asp-route-id="@item.Id" class="btn btn-outline-primary">
+                                            <i class="bi bi-pencil"></i>
+                                            Edit
+                                        </a>
+                                        <a asp-page="Delete" class="btn btn-danger js-delete" asp-route-id="@item.Id">
+                                            <i class="bi bi-trash"></i>
+                                            Delete
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </form>
+        }
+        else
+        {
+            <div class="alert alert-danger" role="alert">
+                <i class="bi bi-exclamation-triangle"></i>
+                No Services Type found! .. Please Create new Services Type.
+            </div>
+        }
+
+    </div>
+</div>

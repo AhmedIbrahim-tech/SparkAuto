@@ -1,0 +1,81 @@
+﻿@page
+@model Web.Pages.Users.DeleteModel
+@{
+    ViewData["Title"] = "Edit Register";
+}
+
+
+<h2 class="text-info pt-2 pb-3">Delete Of User.</h2>
+<div class="white-background row border">
+    <div class="col-8">
+        <form method="post">
+            <input readonly asp-for="ApplicationUser.Id" hidden class="form-control" aria-required="true" />
+            <div class="row form-group">
+                <div class="col-4">
+                    <label asp-for="ApplicationUser.FullName"></label>
+                </div>
+                <div class="col-8">
+                    <input readonly asp-for="ApplicationUser.FullName" class="form-control" aria-required="true" />
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col-4">
+                    <label asp-for="ApplicationUser.Email"></label>
+                </div>
+                <div class="col-8">
+                    <input readonly asp-for="ApplicationUser.Email" class="form-control" aria-required="true" />
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col-4">
+                    <label asp-for="ApplicationUser.Address"></label>
+                </div>
+                <div class="col-8">
+                    <input readonly asp-for="ApplicationUser.Address" class="form-control" aria-required="true" />
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col-4">
+                    <label asp-for="ApplicationUser.PhoneNumber"></label>
+                </div>
+                <div class="col-8">
+                    <input readonly asp-for="ApplicationUser.PhoneNumber" class="form-control" aria-required="true" />
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col-4">
+                    <label asp-for="ApplicationUser.City"></label>
+                </div>
+                <div class="col-8">
+                    <input readonly asp-for="ApplicationUser.City" class="form-control" aria-required="true" />
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col-4">
+                    <label asp-for="ApplicationUser.PostalCode"></label>
+                </div>
+                <div class="col-8">
+                    <input readonly asp-for="ApplicationUser.PostalCode" class="form-control" aria-required="true" />
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col-4 offset-4">
+                    <button type="submit" class="btn btn-danger form-control">Delete</button>
+                </div>
+                <div class="col-4">
+                    <a asp-Page="Index" asp-route-id="@Model.ApplicationUser.Id" class="btn btn-secondary form-control">
+                        Back To List
+                    </a>
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+</div>

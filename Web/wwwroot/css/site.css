@@ -1,0 +1,47 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-color: #EEE;
+}
+
+.white-background {
+    background-color: white;
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+}
+
+.Text-Logo {
+    font-weight: bolder;
+}
+
+.text-right {
+    text-align: end;
+}
+
+.form-group {
+    padding: 0 0 30px 0;
+}
+
+footer {
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    background-color: #555;
+}

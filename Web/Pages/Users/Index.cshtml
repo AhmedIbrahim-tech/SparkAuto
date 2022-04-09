@@ -1,0 +1,123 @@
+﻿@page
+@model Web.Pages.Users.IndexModel
+@{
+    ViewData["Title"] = "Users";
+}
+
+
+<div class="border white-background">
+    <div class="row">
+
+        <div class="col-6">
+            <h2 class="text-info">Users List</h2>
+        </div>
+
+        <div class="col-6 text-right">
+            <a class="btn btn-primary" asp-area="Identity" asp-page="/Account/Register">
+                <i class="bi bi-plus-circle-fill"></i>
+                Create New
+            </a>
+        </div>
+
+
+        <form method="get" asp-page="Index">
+            <br>
+            <div style="height:60px;" class="container border border-primary">
+                <div class="row">
+                    <div class="col-11">
+                        <div class="row" style="padding-top:10px;">
+                            <div class="col-4">
+                                @*@Html.Editor("SearchName" , new { htmlAttributes = new {@class = "form-control" , @placeholder = "Name ... "}})*@
+                                <input id="searchname" name="searchname" type="search" class="form-control" placeholder="Search By Name ">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-1">
+                        <div class="row" style="padding-top:10px;">
+                            <button type="submit" class="btn btn-primary form-control">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+            @if (Model.ApplicationUsersList.Any())
+            {
+                <table class="table table-striped border">
+                    <thead>
+                        <tr>
+                            <th>
+                                <label asp-for="ApplicationUsersList.FirstOrDefault().FullName"></label>
+                            </th>
+                            <th>
+                                <label asp-for="ApplicationUsersList.FirstOrDefault().Email"></label>
+                            </th>
+                            <th>
+                                <label asp-for="ApplicationUsersList.FirstOrDefault().PhoneNumber"></label>
+                            </th>
+                            <th>
+                                <label asp-for="ApplicationUsersList.FirstOrDefault().Address"></label>
+                            </th>
+                            <th>
+                                <label asp-for="ApplicationUsersList.FirstOrDefault().City"></label>
+                            </th>
+
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.ApplicationUsersList)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(M => item.FullName)
+                                </td>
+
+                                <td>
+                                    @Html.DisplayFor(M => item.Email)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(M => item.PhoneNumber)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(M => item.Address)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(M => item.City)
+                                </td>
+
+                                <td class="text-right">
+                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                        <a asp-Page="Details" asp-route-id="@item.Id" class="btn btn-outline-secondary">
+                                            <i class="bi bi-camera-reels"></i>
+                                            Details
+                                        </a>
+                                        <a asp-Page="Edit" asp-route-id="@item.Id" class="btn btn-outline-primary">
+                                            <i class="bi bi-pencil"></i>
+                                            Edit
+                                        </a>
+                                        <a asp-page="Delete" class="btn btn-danger js-delete" asp-route-id="@item.Id">
+                                            <i class="bi bi-trash"></i>
+                                            Delete
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <div class="alert alert-danger" role="alert">
+                    <i class="bi bi-exclamation-triangle"></i>
+                    No User found! ..
+                </div>
+            }
+        </form>
+
+
+    </div>
+</div>

@@ -1,0 +1,45 @@
+﻿@page
+@model Web.Pages.ServicesTypes.DeleteModel
+@{
+    ViewData["Title"] = "Delete Page";
+}
+
+<h1 class="text-success">Delete Service Type </h1>
+
+
+<div class="container border" style="padding : 30px">
+    <form method="post">
+         <input type="hidden" asp-for="Services.Id" />
+        <div class="form-group row">
+            <div class="col-1">
+                <label asp-for="Services.Name"></label>
+            </div>
+
+            <div class="col-6">
+                <input class="form-control" asp-for="Services.Name" readonly />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-1">
+                <label asp-for="Services.Price"></label>
+            </div>
+
+            <div class="col-6">
+                <input class="form-control" asp-for="Services.Price" readonly />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-3 offset-1">
+                <input type="submit" class="btn btn-danger form-control" value="Delete" />
+            </div>
+
+            <div class="col-3">
+                <a asp-page="Index" class="btn btn-primary form-control"> Back to List </a>
+            </div>
+        </div>
+
+    </form>
+
+</div>

@@ -1,0 +1,88 @@
+﻿@page
+@model Web.Pages.Users.EditModel
+@{
+    ViewData["Title"] = "Edit Register";
+}
+
+
+<h2 class="text-info pt-2 pb-3">Edit Of account.</h2>
+<div class="white-background row border">
+    <div class="col-8">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input asp-for="ApplicationUser.Id" hidden class="form-control" aria-required="true" />
+            <div class="row form-group">
+                <div class="col-4">
+                    <label asp-for="ApplicationUser.FullName"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="ApplicationUser.FullName" class="form-control" aria-required="true" />
+                    <span asp-validation-for="ApplicationUser.FullName" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col-4">
+                    <label asp-for="ApplicationUser.Email"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="ApplicationUser.Email" class="form-control" aria-required="true" />
+                    <span asp-validation-for="ApplicationUser.Email" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col-4">
+                    <label asp-for="ApplicationUser.Address"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="ApplicationUser.Address" class="form-control" aria-required="true" />
+                    <span asp-validation-for="ApplicationUser.Address" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col-4">
+                    <label asp-for="ApplicationUser.PhoneNumber"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="ApplicationUser.PhoneNumber" class="form-control" aria-required="true" />
+                    <span asp-validation-for="ApplicationUser.PhoneNumber" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col-4">
+                    <label asp-for="ApplicationUser.City"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="ApplicationUser.City" class="form-control" aria-required="true" />
+                    <span asp-validation-for="ApplicationUser.City" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col-4">
+                    <label asp-for="ApplicationUser.PostalCode"></label>
+                </div>
+                <div class="col-8">
+                    <input asp-for="ApplicationUser.PostalCode" class="form-control" aria-required="true" />
+                    <span asp-validation-for="ApplicationUser.PostalCode" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class="col-4 offset-4">
+                    <button id="registerSubmit" type="submit" class="btn btn-primary form-control">Update</button>
+                </div>
+                <div class="col-4">
+                    <a asp-Page="Index" asp-route-id="@Model.ApplicationUser.Id" class="btn btn-secondary form-control">
+                        Back To List
+                    </a>
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+</div>
